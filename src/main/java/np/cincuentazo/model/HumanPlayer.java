@@ -8,9 +8,6 @@ public class HumanPlayer extends Player{
     }
 
     @Override
-    public Card card
-
-    @Override
     public Card selectCard(int cardIndex, int tableSum) throws InvalidPlayException {
         return getHand().removeCard(cardIndex, tableSum);
     }
