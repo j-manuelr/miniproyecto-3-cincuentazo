@@ -1,5 +1,5 @@
 package np.cincuentazo.model;
-
+import np.cincuentazo.exception.InvalidPlayException;
 import java.util.List;
 
 public abstract class Player {
