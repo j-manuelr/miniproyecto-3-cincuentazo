@@ -19,18 +19,18 @@ public class Hand {
         if(card == null) throw new NullPointerException("Cannot add a null card to the hand.");
         cards.add(card);
     }
-//    public Card removeCard(int index, int tableSum) throws InvalidPlayException{
-//        if(index < 0 || index>= cards.size()){
-//            throw new IndexOutOfBoundsException(
-//                    "Hand index " + index + " out of bounds for hand size " + cards.size()
-//            );
-//        }
-//        Card card = cards.get(index);
-//        if (!card.isPlayable(tableSum)){
-//            throw new InvalidPlayException(card, tableSum);
-//        }
-//        return cards.remove(index);
-//    }
+    public Card removeCard(int index, int tableSum) throws InvalidPlayException{
+        if(index < 0 || index>= cards.size()){
+            throw new IndexOutOfBoundsException(
+                    "Hand index " + index + " out of bounds for hand size " + cards.size()
+            );
+        }
+        Card card = cards.get(index);
+        if (!card.isPlayable(tableSum)){
+            throw new InvalidPlayException(card, tableSum);
+        }
+        return cards.remove(index);
+    }
 
     public List<Card> removeAll(){
         List<Card> removed = new ArrayList<>(cards);

@@ -36,12 +36,12 @@ public class Deck {
     }
 
     public Card drawCard(){
-//        if(cards.isEmpty()){
-//            throw new EmptyDeckException(
-//                    "Attempted to draw an empty deck. " +
-//                            "Call refillFromTableCards() before drawing."
-//            );
-//        }
+        if(cards.isEmpty()){
+            throw new EmptyDeckException(
+                    "Attempted to draw an empty deck. " +
+                            "Call refillFromTableCards() before drawing."
+            );
+        }
        return cards.pollFirst();
     }
 
