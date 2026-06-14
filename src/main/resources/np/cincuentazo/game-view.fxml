@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+        fx:id="rootPane"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="np.cincuentazo.controller.GameController"
+        prefWidth="1100"
+        prefHeight="720"
+        stylesheets="@game.css"
+        styleClass="root-pane">
+
+    <top>
+        <HBox styleClass="top-bar" alignment="CENTER" spacing="24">
+            <padding><Insets top="14" bottom="14" left="28" right="28"/></padding>
+
+            <Label text="Cincuentazo" styleClass="game-title"/>
+
+            <HBox styleClass="turn-badge" alignment="CENTER" spacing="8">
+                <Label fx:id="lblCurrentTurn" text="Jugador" styleClass="turn-player"/>
+            </HBox>
+
+            <HBox styleClass="status-row" alignment="CENTER" spacing="6">
+                <Label fx:id="lblDeckCount" text="40" styleClass="info-value"/>
+                <Label text="cartas" styleClass="info-label"/>
+            </HBox>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox styleClass="center-area" alignment="CENTER" spacing="0">
+            <HBox fx:id="machinePlayersRow" styleClass="machine-row"
+                  alignment="CENTER" spacing="28">
+                <padding><Insets top="18" bottom="18" left="24" right="24"/></padding>
+
+                <VBox fx:id="machine1Zone" styleClass="machine-zone" alignment="CENTER" spacing="8">
+                    <Label fx:id="lblMachine1" text="Máquina 1" styleClass="machine-name"/>
+                    <HBox fx:id="machine1Hand" styleClass="machine-hand" alignment="CENTER" spacing="-18">
+                        <Pane styleClass="card-back,machine-card"/>
+                        <Pane styleClass="card-back,machine-card"/>
+                        <Pane styleClass="card-back,machine-card"/>
+                        <Pane styleClass="card-back,machine-card"/>
+                    </HBox>
+                    <HBox alignment="CENTER" spacing="8">
+                        <Label fx:id="lblMachine1Count" text="4" styleClass="hand-count-value"/>
+                        <Label fx:id="lblMachine1Status" text="" styleClass="player-status-badge"/>
+                    </HBox>
+                </VBox>
+
+                <VBox fx:id="machine2Zone" styleClass="machine-zone" alignment="CENTER" spacing="8">
+                    <Label fx:id="lblMachine2" text="Máquina 2" styleClass="machine-name"/>
+                    <HBox fx:id="machine2Hand" styleClass="machine-hand" alignment="CENTER" spacing="-18">
+                        <Pane styleClass="card-back,machine-card"/>
+                        <Pane styleClass="card-back,machine-card"/>
+                        <Pane styleClass="card-back,machine-card"/>
+                        <Pane styleClass="card-back,machine-card"/>
+                    </HBox>
+                    <HBox alignment="CENTER" spacing="8">
+                        <Label fx:id="lblMachine2Count" text="4" styleClass="hand-count-value"/>
+                        <Label fx:id="lblMachine2Status" text="" styleClass="player-status-badge"/>
+                    </HBox>
+                </VBox>
+
+                <VBox fx:id="machine3Zone" styleClass="machine-zone" alignment="CENTER" spacing="8">
+                    <Label fx:id="lblMachine3" text="Máquina 3" styleClass="machine-name"/>
+                    <HBox fx:id="machine3Hand" styleClass="machine-hand" alignment="CENTER" spacing="-18">
+                        <Pane styleClass="card-back,machine-card"/>
+                        <Pane styleClass="card-back,machine-card"/>
+                        <Pane styleClass="card-back,machine-card"/>
+                        <Pane styleClass="card-back,machine-card"/>
+                    </HBox>
+                    <HBox alignment="CENTER" spacing="8">
+                        <Label fx:id="lblMachine3Count" text="4" styleClass="hand-count-value"/>
+                        <Label fx:id="lblMachine3Status" text="" styleClass="player-status-badge"/>
+                    </HBox>
+                </VBox>
+            </HBox>
+
+            <HBox styleClass="table-area" alignment="CENTER" spacing="60">
+                <padding><Insets top="10" bottom="10"/></padding>
+
+                <VBox alignment="CENTER" spacing="8">
+                    <Label text="Mazo" styleClass="pile-label"/>
+                    <StackPane fx:id="deckPile" styleClass="deck-pile"
+                               prefWidth="90" prefHeight="128"
+                               onMouseClicked="#onDeckClicked">
+                        <Pane styleClass="card-back-large"/>
+                        <Label fx:id="lblDeckSize" text="40" styleClass="deck-count-overlay"/>
+                    </StackPane>
+                </VBox>
+
+                <VBox styleClass="sum-panel" alignment="CENTER" spacing="6">
+                    <StackPane styleClass="sum-bubble">
+                        <Label fx:id="lblTableSum" text="0" styleClass="sum-value"/>
+                    </StackPane>
+                    <Label text="/ 50" styleClass="sum-max"/>
+                    <Label fx:id="lblSumWarning" text="" styleClass="sum-warning"/>
+                </VBox>
+
+                <VBox alignment="CENTER" spacing="8">
+                    <Label text="Mesa" styleClass="pile-label"/>
+                    <StackPane fx:id="tablePile" styleClass="table-pile"
+                               prefWidth="90" prefHeight="128">
+                        <Pane styleClass="table-pile-bg"/>
+                        <Pane fx:id="tableCardDisplay" styleClass="card-placeholder"/>
+                    </StackPane>
+                    <Label fx:id="lblLastCard" text="-" styleClass="last-card-label"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </center>
+
+    <bottom>
+        <VBox styleClass="human-area" spacing="10">
+            <padding><Insets top="14" bottom="18" left="24" right="24"/></padding>
+
+            <HBox alignment="CENTER">
+                <Label fx:id="lblActionMsg" text="Selecciona una carta"
+                       styleClass="action-message"/>
+            </HBox>
+
+            <HBox alignment="CENTER" spacing="18">
+                <VBox alignment="CENTER" spacing="6">
+                    <Label text="Tu mano" styleClass="player-section-title"/>
+                    <HBox fx:id="humanHand" alignment="CENTER" spacing="12" styleClass="human-hand">
+                    </HBox>
+                </VBox>
+            </HBox>
+
+            <HBox alignment="CENTER" spacing="16">
+                <Button fx:id="btnDrawCard"
+                        text="Tomar"
+                        styleClass="btn-draw"
+                        onAction="#onDrawCard"
+                        disable="true"/>
+
+                <Button fx:id="btnNewGame"
+                        text="Nueva partida"
+                        styleClass="btn-secondary"
+                        onAction="#onNewGame"/>
+            </HBox>
+
+            <HBox alignment="CENTER" spacing="10">
+                <Label fx:id="lblHumanStatus" text="" styleClass="player-status-badge"/>
+            </HBox>
+        </VBox>
+    </bottom>
+
+    <left>
+        <Pane styleClass="side-spacer" prefWidth="180"/>
+    </left>
+
+    <right>
+        <VBox fx:id="eliminationLog" styleClass="elim-log" spacing="6"
+              prefWidth="180" visible="true">
+            <padding><Insets top="20" bottom="12" left="12" right="12"/></padding>
+            <Label text="Eliminados" styleClass="elim-title"/>
+            <VBox fx:id="elimList" spacing="4">
+            </VBox>
+        </VBox>
+    </right>
+</BorderPane>
