@@ -26,6 +26,6 @@ public class MachinePlayer extends Player{
 
         Card best = playable.stream().max(Comparator.comparing(c -> tableSum + c.getValue(tableSum))).orElseThrow();
         // Translate back to the index in the full hand (not just the playable subset).
-        return getHand().getCards().indexOf(best)
+        return getHand().getCards().indexOf(best);
     }
 }
