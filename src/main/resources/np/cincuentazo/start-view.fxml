@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="np.cincuentazo.controller.StartController"
+        prefWidth="1100"
+        prefHeight="720"
+        stylesheets="@start.css"
+        styleClass="start-root">
+
+    <!-- ======================================================
+         ENCABEZADO
+         ====================================================== -->
+    <top>
+        <VBox styleClass="start-header" spacing="6">
+            <padding><Insets top="22" bottom="22"/></padding>
+            <Label text="CINCUENTAZO" styleClass="start-title"/>
+            <Label text="♠  ♥  ♦  ♣" styleClass="start-suits"/>
+        </VBox>
+    </top>
+
+    <!-- ======================================================
+         CUERPO CENTRAL
+         ====================================================== -->
+    <center>
+        <VBox styleClass="start-body" alignment="CENTER">
+
+            <VBox styleClass="start-card-deco" alignment="CENTER" spacing="28">
+
+                <!-- Pregunta de selección -->
+                <Label text="¿Cuántos jugadores máquina?" styleClass="start-prompt"/>
+                <Label text="Selecciona 1, 2 o 3 oponentes" styleClass="start-sub"/>
+
+                <!-- Botones de selección: ToggleGroup declarado en fx:define -->
+                <fx:define>
+                    <ToggleGroup fx:id="machineGroup"/>
+                </fx:define>
+
+                <HBox styleClass="toggle-row" alignment="CENTER">
+                    <ToggleButton fx:id="btn1"
+                                  text="1"
+                                  styleClass="machine-toggle"
+                                  toggleGroup="$machineGroup"
+                                  selected="true"/>
+                    <ToggleButton fx:id="btn2"
+                                  text="2"
+                                  styleClass="machine-toggle"
+                                  toggleGroup="$machineGroup"/>
+                    <ToggleButton fx:id="btn3"
+                                  text="3"
+                                  styleClass="machine-toggle"
+                                  toggleGroup="$machineGroup"/>
+                </HBox>
+
+                <!-- Botón principal -->
+                <Button fx:id="btnStart"
+                        text="▶  JUGAR"
+                        styleClass="btn-start"
+                        onAction="#onStart"
+                        defaultButton="true"/>
+
+            </VBox>
+        </VBox>
+    </center>
+
+    <!-- ======================================================
+         PIE: recordatorio de reglas
+         ====================================================== -->
+    <bottom>
+        <HBox styleClass="start-footer">
+            <Label text="Cada jugador recibe 4 cartas  •  La suma de la mesa no puede superar 50  •  Quien no pueda jugar queda eliminado" styleClass="rule-text"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

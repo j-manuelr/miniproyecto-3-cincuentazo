@@ -1,0 +1,134 @@
+/* ============================================================
+   start.css  –  pantalla de inicio de Cincuentazo
+   ============================================================ */
+
+.start-root {
+    -fx-background-color: #17382f;
+    -fx-font-family: "Cambria", "Georgia", "Constantia", "Segoe UI", serif;
+    -fx-font-smoothing-type: gray;
+}
+
+/* ---------- encabezado superior ---------- */
+.start-header {
+    -fx-background-color: #efe1bd;
+    -fx-border-color: #b49354;
+    -fx-border-width: 0 0 2 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.28), 8, 0, 0, 3);
+    -fx-alignment: center;
+    -fx-padding: 18 0 18 0;
+}
+
+.start-title {
+    -fx-text-fill: #1d2b25;
+    -fx-font-size: 42px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 3;
+}
+
+.start-suits {
+    -fx-text-fill: #b88733;
+    -fx-font-size: 22px;
+    -fx-letter-spacing: 8;
+}
+
+/* ---------- cuerpo central ---------- */
+.start-body {
+    -fx-alignment: center;
+    -fx-spacing: 40;
+}
+
+.start-card-deco {
+    -fx-background-color: rgba(255,255,255,0.05);
+    -fx-background-radius: 12;
+    -fx-border-color: rgba(239,225,189,0.25);
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 36 56 36 56;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.38), 14, 0, 0, 4);
+}
+
+.start-prompt {
+    -fx-text-fill: #eee3c7;
+    -fx-font-size: 16px;
+    -fx-font-weight: 700;
+}
+
+.start-sub {
+    -fx-text-fill: rgba(238,227,199,0.65);
+    -fx-font-size: 12px;
+}
+
+/* ---------- botones de selección (ToggleButtons) ---------- */
+.toggle-row {
+    -fx-spacing: 0;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.32), 6, 0, 0, 2);
+}
+
+.machine-toggle {
+    -fx-background-color: rgba(255,255,255,0.10);
+    -fx-text-fill: #eee3c7;
+    -fx-font-size: 22px;
+    -fx-font-weight: 700;
+    -fx-min-width: 68px;
+    -fx-min-height: 64px;
+    -fx-padding: 0;
+    -fx-background-radius: 0;
+    -fx-border-color: rgba(180,147,84,0.60);
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+}
+
+.machine-toggle:first-child {
+    -fx-background-radius: 6 0 0 6;
+}
+
+.machine-toggle:last-child {
+    -fx-background-radius: 0 6 6 0;
+}
+
+.machine-toggle:hover {
+    -fx-background-color: rgba(184,135,51,0.30);
+    -fx-text-fill: #ffffff;
+}
+
+.machine-toggle:selected {
+    -fx-background-color: #b88733;
+    -fx-text-fill: #1c221f;
+    -fx-border-color: #b88733;
+}
+
+/* ---------- botón Jugar ---------- */
+.btn-start {
+    -fx-background-color: #b88733;
+    -fx-text-fill: #1c221f;
+    -fx-font-size: 16px;
+    -fx-font-weight: 700;
+    -fx-min-width: 200px;
+    -fx-min-height: 52px;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-letter-spacing: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.36), 8, 0, 0, 3);
+}
+
+.btn-start:hover {
+    -fx-background-color: #c99843;
+    -fx-translate-y: -1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.44), 12, 0, 0, 4);
+}
+
+/* ---------- pie de página con reglas ---------- */
+.start-footer {
+    -fx-background-color: rgba(0,0,0,0.28);
+    -fx-border-color: rgba(255,255,255,0.10);
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 14 40 14 40;
+    -fx-alignment: center;
+    -fx-spacing: 24;
+}
+
+.rule-text {
+    -fx-text-fill: rgba(238,227,199,0.58);
+    -fx-font-size: 11px;
+}

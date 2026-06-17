@@ -43,7 +43,12 @@ public class GameState {
         first.setFaceUp(true);
         tableCards.push(first);
 
-        tableSum = first.getValue(0);
+        // HU-2 / "Otras consideraciones": the automatically dealt starting card
+        // is not chosen by any player, so an Ace must start the table sum at 1
+        // (never 10). first.getValue(0) would otherwise return 10 for an Ace
+        // because 0 + 10 <= 50, which contradicts the rule. Every other rank
+        // is unaffected by the tableSum argument (9 -> 0, J/Q/K -> -10, etc.).
+        tableSum = first.getRank().isAce() ? 1 : first.getValue(0);
     }
 
     public void advanceTurn(){
