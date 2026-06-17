@@ -6,11 +6,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * Punto de entrada de la aplicación Cincuentazo.
+ * Entry point of the Cincuentazo application.
  *
- * <p>Carga {@code start-view.fxml} como primera escena (HU-1).
- * La transición a la vista del juego la realiza {@link np.cincuentazo.controller.StartController}
- * tras confirmar el número de oponentes.
+ * <p>Loads {@code start-view.fxml} as the first scene (HU-1).
+ * The transition to the game view is performed by {@link np.cincuentazo.controller.StartController}
+ * after the number of opponents has been confirmed.
  */
 public class Main extends Application {
 
