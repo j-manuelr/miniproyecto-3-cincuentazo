@@ -3,10 +3,12 @@ package np.cincuentazo.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
+import np.cincuentazo.view.UiAnimations;
 
 import java.io.IOException;
 
@@ -28,6 +30,7 @@ public class StartController {
     @FXML private ToggleButton btn1;
     @FXML private ToggleButton btn2;
     @FXML private ToggleButton btn3;
+    @FXML private Button       btnStart;
 
     /**
      * Ensures there is always a button selected (prevents deselection
@@ -35,6 +38,11 @@ public class StartController {
      */
     @FXML
     public void initialize() {
+        UiAnimations.applyButtonMotion(btn1);
+        UiAnimations.applyButtonMotion(btn2);
+        UiAnimations.applyButtonMotion(btn3);
+        UiAnimations.applyButtonMotion(btnStart);
+
         // Impedir que el usuario deseleccione el toggle activo
         machineGroup.selectedToggleProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal == null) {

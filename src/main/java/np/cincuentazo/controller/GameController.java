@@ -14,6 +14,7 @@ import javafx.util.Duration;
 import np.cincuentazo.exception.InvalidPlayException;
 import np.cincuentazo.model.*;
 import np.cincuentazo.view.GameView;
+import np.cincuentazo.view.UiAnimations;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -107,6 +108,9 @@ public class GameController {
      */
     @FXML
     public void initialize() {
+        UiAnimations.applyButtonMotion(btnDrawCard);
+        UiAnimations.applyButtonMotion(btnNewGame);
+        UiAnimations.applyDeckMotion(deckPile);
         // La partida se inicia desde StartController mediante startGame().
     }
 

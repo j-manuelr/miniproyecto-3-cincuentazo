@@ -42,6 +42,7 @@ public class GameView {
             if (!isHumanTurn || !ok) cv.setCardDisabled(true);
 
             if (isHumanTurn && ok) {
+                UiAnimations.applyCardMotion(cv);
                 cv.setOnMouseClicked(clickHandlerFactory.apply(i));
             }
 

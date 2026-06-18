@@ -12,23 +12,21 @@
 .start-header {
     -fx-background-color: #efe1bd;
     -fx-border-color: #b49354;
-    -fx-border-width: 0 0 2 0;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.28), 8, 0, 0, 3);
+    -fx-border-width: 0 0 1 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.26), 8, 0, 0, 2);
     -fx-alignment: center;
     -fx-padding: 18 0 18 0;
 }
 
 .start-title {
     -fx-text-fill: #1d2b25;
-    -fx-font-size: 42px;
+    -fx-font-size: 38px;
     -fx-font-weight: 700;
-    -fx-letter-spacing: 3;
 }
 
 .start-suits {
     -fx-text-fill: #b88733;
     -fx-font-size: 22px;
-    -fx-letter-spacing: 8;
 }
 
 /* ---------- cuerpo central ---------- */
@@ -38,10 +36,10 @@
 }
 
 .start-card-deco {
-    -fx-background-color: rgba(255,255,255,0.05);
-    -fx-background-radius: 12;
-    -fx-border-color: rgba(239,225,189,0.25);
-    -fx-border-radius: 12;
+    -fx-background-color: rgba(10,27,23,0.34);
+    -fx-background-radius: 6;
+    -fx-border-color: rgba(239,225,189,0.22);
+    -fx-border-radius: 6;
     -fx-border-width: 1;
     -fx-padding: 36 56 36 56;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.38), 14, 0, 0, 4);
@@ -106,7 +104,7 @@
     -fx-font-weight: 700;
     -fx-min-width: 200px;
     -fx-min-height: 52px;
-    -fx-background-radius: 6;
+    -fx-background-radius: 5;
     -fx-cursor: hand;
     -fx-letter-spacing: 1;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.36), 8, 0, 0, 3);
@@ -114,7 +112,6 @@
 
 .btn-start:hover {
     -fx-background-color: #c99843;
-    -fx-translate-y: -1;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.44), 12, 0, 0, 4);
 }
 

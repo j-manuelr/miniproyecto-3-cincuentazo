@@ -126,7 +126,6 @@
 }
 
 .deck-pile:hover .card-back-large {
-    -fx-translate-y: -2;
     -fx-border-color: #c99843;
 }
 
@@ -233,6 +232,7 @@
 
 .btn-draw:hover {
     -fx-background-color: #c99843;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.38), 8, 0, 0, 3);
 }
 
 .btn-draw:disabled {
@@ -258,6 +258,7 @@
 .btn-secondary:hover {
     -fx-background-color: rgba(255,255,255,0.08);
     -fx-border-color: #ffffff;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.20), 6, 0, 0, 2);
 }
 
 .player-status-badge {
@@ -339,7 +340,6 @@
 }
 
 .card:hover {
-    -fx-translate-y: -6;
     -fx-border-color: #c99843;
 }
 
