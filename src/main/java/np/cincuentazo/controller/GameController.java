@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
@@ -97,6 +98,7 @@ public class GameController {
      * before the turn passes to the next player.
      */
     private boolean waitingForDraw = false;
+    private boolean drawInProgress = false;
 
     // =========================================================================
     // JavaFX lifecycle
@@ -331,17 +333,34 @@ public class GameController {
      * Only executes when {@link #waitingForDraw} is {@code true}.
      */
     private void drawCardForHuman() {
-        if (!waitingForDraw || gameState.isGameOver()) return;
+        if (!waitingForDraw || drawInProgress || gameState.isGameOver()) return;
 
         Player current = gameState.getCurrentPlayer();
         if (!(current instanceof HumanPlayer)) return;
 
+        drawInProgress = true;
         gameState.refillDeckIfNeeded();
         gameState.dealCardToPlayer(current);
-        waitingForDraw = false;
         btnDrawCard.setDisable(true);
         refreshView();
+        lblActionMsg.setText("Tomando carta del mazo...");
 
+        animateDrawnCardToHand();
+    }
+
+    private void animateDrawnCardToHand() {
+        if (humanHand.getChildren().isEmpty()) {
+            finishHumanDraw();
+            return;
+        }
+
+        Node drawnCard = humanHand.getChildren().get(humanHand.getChildren().size() - 1);
+        Platform.runLater(() -> UiAnimations.animateCardFromDeck(deckPile, drawnCard, this::finishHumanDraw));
+    }
+
+    private void finishHumanDraw() {
+        waitingForDraw = false;
+        drawInProgress = false;
         gameState.advanceTurn();
         turnController.processTurn();
     }
@@ -394,7 +413,7 @@ public class GameController {
         List<Player> players = gameState.getPlayers();
         Player humanPlayer  = players.get(0);
         Player current      = gameState.getCurrentPlayer();
-        boolean isHumanTurn = (current == humanPlayer) && !waitingForDraw;
+        boolean isHumanTurn = (current == humanPlayer) && !waitingForDraw && !drawInProgress;
 
         updateStatusBadge(lblHumanStatus, humanPlayer, current);
 
@@ -412,7 +431,8 @@ public class GameController {
         }
 
         if (!gameState.isGameOver()) {
-            if      (isHumanTurn)  lblActionMsg.setText("Selecciona una carta para jugar.");
+            if      (drawInProgress) lblActionMsg.setText("Tomando carta del mazo...");
+            else if (isHumanTurn)  lblActionMsg.setText("Selecciona una carta para jugar.");
             else if (waitingForDraw) lblActionMsg.setText("Ahora toma una carta del mazo.");
             else                   lblActionMsg.setText("Esperando al siguiente jugador…");
         }

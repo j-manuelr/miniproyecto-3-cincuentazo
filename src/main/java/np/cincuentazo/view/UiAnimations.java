@@ -1,9 +1,11 @@
 package np.cincuentazo.view;
 
+import javafx.animation.FadeTransition;
 import javafx.animation.Interpolator;
 import javafx.animation.ParallelTransition;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
+import javafx.geometry.Bounds;
 import javafx.scene.Node;
 import javafx.util.Duration;
 
@@ -12,6 +14,7 @@ public final class UiAnimations {
     private static final String ACTIVE_TRANSITION_KEY = "ui-active-transition";
     private static final Duration QUICK = Duration.millis(95);
     private static final Duration SMOOTH = Duration.millis(150);
+    private static final Duration DEAL = Duration.millis(420);
     private static final Interpolator EASE = Interpolator.SPLINE(0.16, 1.0, 0.3, 1.0);
 
     private UiAnimations() {
@@ -45,6 +48,44 @@ public final class UiAnimations {
         node.setOnMouseExited(event -> animate(node, 0, 1.0, SMOOTH));
         node.setOnMousePressed(event -> animate(node, 1, 0.98, QUICK));
         node.setOnMouseReleased(event -> animate(node, node.isHover() ? -2 : 0, node.isHover() ? 1.02 : 1.0, SMOOTH));
+    }
+
+    public static void animateCardFromDeck(Node deck, Node card, Runnable onFinished) {
+        Bounds deckBounds = deck.localToScene(deck.getBoundsInLocal());
+        Bounds cardBounds = card.localToScene(card.getBoundsInLocal());
+
+        double deckCenterX = deckBounds.getMinX() + deckBounds.getWidth() / 2;
+        double deckCenterY = deckBounds.getMinY() + deckBounds.getHeight() / 2;
+        double cardCenterX = cardBounds.getMinX() + cardBounds.getWidth() / 2;
+        double cardCenterY = cardBounds.getMinY() + cardBounds.getHeight() / 2;
+
+        card.setMouseTransparent(true);
+        card.setTranslateX(deckCenterX - cardCenterX);
+        card.setTranslateY(deckCenterY - cardCenterY);
+        card.setScaleX(0.86);
+        card.setScaleY(0.86);
+        card.setOpacity(0.92);
+
+        TranslateTransition move = new TranslateTransition(DEAL, card);
+        move.setToX(0);
+        move.setToY(0);
+        move.setInterpolator(EASE);
+
+        ScaleTransition resize = new ScaleTransition(DEAL, card);
+        resize.setToX(1);
+        resize.setToY(1);
+        resize.setInterpolator(EASE);
+
+        FadeTransition fade = new FadeTransition(DEAL, card);
+        fade.setToValue(1);
+        fade.setInterpolator(EASE);
+
+        ParallelTransition transition = new ParallelTransition(move, resize, fade);
+        transition.setOnFinished(event -> {
+            card.setMouseTransparent(false);
+            if (onFinished != null) onFinished.run();
+        });
+        transition.play();
     }
 
     private static boolean isDisabledCard(Node node) {
