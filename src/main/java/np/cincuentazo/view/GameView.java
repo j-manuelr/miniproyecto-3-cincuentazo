@@ -1,9 +1,6 @@
 package np.cincuentazo.view;
 
 import javafx.event.EventHandler;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -14,7 +11,6 @@ import np.cincuentazo.model.Card;
 import np.cincuentazo.model.Player;
 
 import java.util.List;
-import java.util.Optional;
 
 public class GameView {
 
@@ -80,18 +76,4 @@ public class GameView {
         elimList.getChildren().add(entry);
     }
 
-    public static void showGameOverDialog(String winnerName, Runnable onRematch) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Fin del juego — Cincuentazo");
-        alert.setHeaderText("¡Juego terminado!");
-        alert.setContentText("Ganador: " + winnerName + "\n\n¿Deseas jugar otra partida?");
-
-        ButtonType btnSi = new ButtonType("Sí");
-        ButtonType btnNo = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
-        alert.getButtonTypes().setAll(btnSi, btnNo);
-
-        alert.showAndWait().ifPresent(r -> {
-            if (r == btnSi) onRematch.run();
-        });
-    }
 }

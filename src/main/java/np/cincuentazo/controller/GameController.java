@@ -239,7 +239,7 @@ public class GameController {
         refreshView();
 
         if (gameState.isGameOver()) {         // HU-6
-            showGameOverDialog();
+            navigateToVictoryScreen();
             return;
         }
 
@@ -465,15 +465,32 @@ public class GameController {
     }
 
     // =========================================================================
-    // Private — game-over dialog (HU-6)
+    // Private — game-over view (HU-6)
     // =========================================================================
 
-    /** Displays a modal alert declaring the winner and offering a rematch. */
-    private void showGameOverDialog() {
+    /** Navigates to the final result scene without blocking the JavaFX thread. */
+    private void navigateToVictoryScreen() {
         Player winner    = gameState.getWinner();
         String winnerName = winner != null ? winner.getName() : "Nadie";
+        boolean humanWon = !gameState.getPlayers().isEmpty() && winner == gameState.getPlayers().get(0);
 
-        GameView.showGameOverDialog(winnerName, this::startNewGame);
+        Platform.runLater(() -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(
+                        getClass().getResource("/np/cincuentazo/victory-view.fxml")
+                );
+                Scene victoryScene = new Scene(loader.load());
+
+                VictoryController victoryController = loader.getController();
+                victoryController.setResult(humanWon, winnerName, numberOfMachines);
+
+                Stage stage = (Stage) rootPane.getScene().getWindow();
+                stage.setScene(victoryScene);
+                stage.setTitle("Cincuentazo - Resultado");
+            } catch (IOException e) {
+                throw new RuntimeException("No se pudo cargar victory-view.fxml", e);
+            }
+        });
     }
 
     // =========================================================================

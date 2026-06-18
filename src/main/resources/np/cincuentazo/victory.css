@@ -1,0 +1,99 @@
+.victory-root {
+    -fx-background-color: #17382f;
+    -fx-font-family: "Cambria", "Georgia", "Constantia", "Segoe UI", serif;
+    -fx-font-smoothing-type: gray;
+}
+
+.victory-header {
+    -fx-background-color: #efe1bd;
+    -fx-border-color: #b49354;
+    -fx-border-width: 0 0 1 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.26), 8, 0, 0, 2);
+    -fx-alignment: center;
+}
+
+.victory-title {
+    -fx-text-fill: #1d2b25;
+    -fx-font-size: 38px;
+    -fx-font-weight: 700;
+}
+
+.victory-subtitle {
+    -fx-text-fill: #b88733;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+}
+
+.victory-body {
+    -fx-alignment: center;
+}
+
+.victory-panel {
+    -fx-background-color: rgba(10,27,23,0.34);
+    -fx-background-radius: 6;
+    -fx-border-color: rgba(239,225,189,0.22);
+    -fx-border-radius: 6;
+    -fx-border-width: 1;
+    -fx-padding: 42 58 42 58;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.38), 14, 0, 0, 4);
+}
+
+.result-title {
+    -fx-text-fill: #eee3c7;
+    -fx-font-size: 32px;
+    -fx-font-weight: 700;
+}
+
+.result-message {
+    -fx-text-fill: rgba(238,227,199,0.72);
+    -fx-font-size: 15px;
+}
+
+.btn-victory {
+    -fx-background-color: #b88733;
+    -fx-text-fill: #1c221f;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-min-width: 160px;
+    -fx-min-height: 46px;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.36), 8, 0, 0, 3);
+}
+
+.btn-victory:hover {
+    -fx-background-color: #c99843;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.44), 12, 0, 0, 4);
+}
+
+.btn-victory-secondary {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-min-width: 112px;
+    -fx-min-height: 42px;
+    -fx-background-radius: 5;
+    -fx-border-color: rgba(255,255,255,0.48);
+    -fx-border-radius: 5;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+}
+
+.btn-victory-secondary:hover {
+    -fx-background-color: rgba(255,255,255,0.08);
+    -fx-border-color: #ffffff;
+}
+
+.victory-footer {
+    -fx-background-color: rgba(0,0,0,0.28);
+    -fx-border-color: rgba(255,255,255,0.10);
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 14 40 14 40;
+    -fx-alignment: center;
+}
+
+.victory-footer-text {
+    -fx-text-fill: rgba(238,227,199,0.58);
+    -fx-font-size: 11px;
+}
