@@ -22,7 +22,7 @@
         <HBox styleClass="top-bar" alignment="CENTER" spacing="24">
             <padding><Insets top="14" bottom="14" left="28" right="28"/></padding>
 
-            <Label text="Cincuentazo" styleClass="game-title"/>
+            <Label text="CINCUENTAZO" styleClass="game-title"/>
 
             <HBox styleClass="turn-badge" alignment="CENTER" spacing="8">
                 <Label fx:id="lblCurrentTurn" text="Jugador" styleClass="turn-player"/>
@@ -155,7 +155,7 @@
     </bottom>
 
     <left>
-        <Pane styleClass="side-spacer" prefWidth="180"/>
+        <VBox styleClass="elim-log,left-empty-column" prefWidth="180" visible="true"/>
     </left>
 
     <right>
