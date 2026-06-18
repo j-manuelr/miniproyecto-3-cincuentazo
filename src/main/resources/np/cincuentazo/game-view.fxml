@@ -155,7 +155,7 @@
     </bottom>
 
     <left>
-        <Pane styleClass="side-spacer" prefWidth="180"/>
+        <VBox styleClass="elim-log,left-empty-column" prefWidth="180" visible="true"/>
     </left>
 
     <right>

@@ -289,6 +289,10 @@
     -fx-border-width: 0 0 0 1;
 }
 
+.left-empty-column {
+    -fx-border-width: 0 1 0 0;
+}
+
 .side-spacer {
     -fx-background-color: transparent;
 }
