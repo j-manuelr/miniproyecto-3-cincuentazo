@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="np.cincuentazo.controller.VictoryController"
+        prefWidth="1100"
+        prefHeight="720"
+        stylesheets="@victory.css"
+        styleClass="victory-root">
+
+    <top>
+        <VBox styleClass="victory-header" spacing="6">
+            <padding><Insets top="22" bottom="22"/></padding>
+            <Label text="CINCUENTAZO" styleClass="victory-title"/>
+            <Label text="FIN DE LA PARTIDA" styleClass="victory-subtitle"/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox styleClass="victory-body" alignment="CENTER">
+            <VBox styleClass="victory-panel" alignment="CENTER" spacing="24">
+                <Label fx:id="lblResultTitle" text="GANASTE" styleClass="result-title"/>
+                <Label fx:id="lblResultMessage" text="Sobreviviste al cincuentazo." styleClass="result-message"/>
+
+                <HBox alignment="CENTER" spacing="16">
+                    <Button fx:id="btnPlayAgain"
+                            text="Jugar de nuevo"
+                            styleClass="btn-victory"
+                            onAction="#onPlayAgain"
+                            defaultButton="true"/>
+
+                    <Button fx:id="btnStart"
+                            text="Inicio"
+                            styleClass="btn-victory-secondary"
+                            onAction="#onStart"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox styleClass="victory-footer">
+            <Label text="Cada partida empieza con una nueva mesa y el mismo numero de oponentes." styleClass="victory-footer-text"/>
+        </HBox>
+    </bottom>
+</BorderPane>
