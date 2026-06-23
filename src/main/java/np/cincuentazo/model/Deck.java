@@ -113,6 +113,16 @@ public class Deck {
         return cards.size();
     }
 
+    // -------------------------------------------------------------------------
+    // Object overrides
+    // -------------------------------------------------------------------------
+
+    /**
+     * Returns a summary string showing how many cards remain.
+     * Example: {@code "Deck[remaining=34]"}.
+     *
+     * @return summary string for debugging and logging
+     */
     @Override
     public String toString() {
         return "Deck [remaining = " + cards.size() + "]";

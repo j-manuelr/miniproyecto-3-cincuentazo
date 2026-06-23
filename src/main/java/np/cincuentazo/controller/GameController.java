@@ -193,7 +193,7 @@ public class GameController {
                 return;
             }
 
-            int bestIdx = machine.ChooseBestCardIndex(gameState.getTableSum());
+            int bestIdx = machine.chooseBestCardIndex(gameState.getTableSum());
             Card played = machine.selectCard(bestIdx, gameState.getTableSum());
             gameState.playCard(played);
             refreshView();

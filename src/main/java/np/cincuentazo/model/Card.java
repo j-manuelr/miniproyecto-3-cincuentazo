@@ -97,11 +97,30 @@ public class Card {
         return suit == other.suit && rank == other.rank;
     }
 
+    // -------------------------------------------------------------------------
+    // Object overrides
+    // -------------------------------------------------------------------------
+
+    /**
+     * Two cards are equal if and only if they share the same suit and rank.
+     * Face-up state is intentionally excluded from equality because two cards
+     * with the same identity are the same card regardless of orientation.
+     *
+     * <p>Note: in a standard deck there is exactly one card per (suit, rank)
+     * combination, so equality should rarely be triggered between distinct
+     * card objects in normal gameplay.</p>
+     */
     @Override
     public int hashCode() {
         return Objects.hash(suit, rank);
     }
 
+    /**
+     * Returns a compact string representation of the card.
+     * Example: {@code "A♥"}, {@code "10♣"}, {@code "J♠"}.
+     *
+     * @return rank label followed by suit symbol
+     */
     @Override
     public String toString() {
         return rank.getLabel() + suit.getSymbol();
