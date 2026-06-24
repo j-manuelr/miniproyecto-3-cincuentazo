@@ -1,16 +1,11 @@
 package np.cincuentazo.controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
-import javafx.stage.Stage;
 import np.cincuentazo.view.UiAnimations;
-
-import java.io.IOException;
 
 /**
  * Start screen controller (HU-1).
@@ -22,7 +17,8 @@ import java.io.IOException;
  *
  * <p>This class implements the Single Responsibility Principle (SRP): its
  * only responsibility is to capture the initial game configuration
- * and make the scene transition.
+ * and make the scene transition. Scene navigation is delegated to
+ * {@link SceneNavigator}.
  */
 public class StartController {
 
@@ -43,7 +39,7 @@ public class StartController {
         UiAnimations.applyButtonMotion(btn3);
         UiAnimations.applyButtonMotion(btnStart);
 
-        // Impedir que el usuario deseleccione el toggle activo
+        // Prevent the user from deselecting the currently active toggle
         machineGroup.selectedToggleProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal == null) {
                 machineGroup.selectToggle(oldVal);
@@ -52,40 +48,23 @@ public class StartController {
     }
 
     // =========================================================================
-    // Manejador de eventos FXML
+    // FXML event handler
     // =========================================================================
 
     /**
      * "PLAY" button action (HU-1).
      *
-     * <p>Reads the selected number of machines, loads {@code game-view.fxml},
-     * injects the configuration into {@link GameController} and performs the
-     * scene transition on the current {@link Stage}.
+     * <p>Reads the selected number of machines and delegates the scene
+     * transition to {@link SceneNavigator#toGameScreen(javafx.scene.Node, int)}.
      */
     @FXML
     private void onStart() {
         int numMachines = getSelectedMachineCount();
-
-        try {
-            FXMLLoader loader = new FXMLLoader(
-                    getClass().getResource("/np/cincuentazo/game-view.fxml")
-            );
-            Scene gameScene = new Scene(loader.load());
-
-            GameController gameController = loader.getController();
-            gameController.startGame(numMachines);
-
-            Stage stage = (Stage) btn1.getScene().getWindow();
-            stage.setScene(gameScene);
-            stage.setTitle("Cincuentazo");
-
-        } catch (IOException e) {
-            throw new RuntimeException("No se pudo cargar game-view.fxml", e);
-        }
+        SceneNavigator.toGameScreen(btn1, numMachines);
     }
 
     // =========================================================================
-    // Método privado auxiliar
+    // Private helper method
     // =========================================================================
 
     /**
