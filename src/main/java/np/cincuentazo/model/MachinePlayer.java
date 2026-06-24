@@ -90,7 +90,7 @@ public class MachinePlayer extends Player{
         List<Card> playable = getHand().getPlayableCards(tableSum);
         if (playable.isEmpty()){
             throw new IllegalStateException(
-                    getName() + "has no playable cards. Check canPlay() before calling chooseBestCardIndex()."
+                    getName() + " has no playable cards. Check canPlay() before calling chooseBestCardIndex()."
             );
         }
 

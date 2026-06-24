@@ -91,7 +91,7 @@ public class GameState {
             );
         }
 
-        this.players = players;
+        this.players = new ArrayList<>(players);  // defensive copy (cambio 5)
         this.deck = new Deck();
         this.tableCards = new Stack<>();
         this.currentTurnIndex = 0;
