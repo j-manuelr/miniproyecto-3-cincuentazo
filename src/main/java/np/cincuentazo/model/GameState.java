@@ -70,7 +70,7 @@ public class GameState {
      * Creates a new game state for the given player list, using a freshly
      * shuffled deck. The first card is dealt to the table to start the sum.
      *
-     * <h3>Setup sequence</h3>
+     * Setup sequence
      * <ol>
      *   <li>Store players (human at index 0, machines at 1-3).</li>
      *   <li>Deal 4 cards to each player (face up for human, face down for machines).</li>

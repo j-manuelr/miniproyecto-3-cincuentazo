@@ -25,7 +25,7 @@ import np.cincuentazo.model.Card;
  * <pre>
  *   Cannot play A♠: table sum would become 55 (max allowed is 50). Current sum: 45.
  * </pre>
- * </p>
+ *
  */
 public class InvalidPlayException extends Exception {
 

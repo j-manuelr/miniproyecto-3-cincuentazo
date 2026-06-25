@@ -81,7 +81,7 @@ public final class SceneNavigator {
      *   <li>{@link VictoryController#onStart()} — player wants to change the
      *       number of machine opponents.</li>
      * </ul>
-     * </p>
+     *
      *
      * @param anyNode any node currently attached to the scene whose
      *                {@link Stage} will host the new scene; must not be
@@ -105,7 +105,7 @@ public final class SceneNavigator {
      *   <li>{@link StartController#onStart()} — first game of a session.</li>
      *   <li>{@link VictoryController#onPlayAgain()} — rematch with same config.</li>
      * </ul>
-     * </p>
+     *
      *
      * @param anyNode     any node currently attached to the scene whose
      *                    {@link Stage} will host the new scene

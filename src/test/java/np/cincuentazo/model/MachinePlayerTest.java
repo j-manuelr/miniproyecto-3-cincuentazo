@@ -44,9 +44,9 @@ public class MachinePlayerTest {
         void picksCardWithHighestResultingSum() {
             MachinePlayer machine = new MachinePlayer("Máquina 1");
             // tableSum = 40
-            // THREE  → 40+3  = 43
-            // FIVE   → 40+5  = 45  ← best
-            // KING   → 40-10 = 30
+            // THREE  -> 40+3  = 43
+            // FIVE   -> 40+5  = 45  <- best
+            // KING   -> 40-10 = 30
             machine.drawCard(new Card(Suit.CLUBS,    Rank.THREE));
             machine.drawCard(new Card(Suit.HEARTS,   Rank.FIVE));
             machine.drawCard(new Card(Suit.SPADES,   Rank.KING));
@@ -101,8 +101,8 @@ public class MachinePlayerTest {
         void prefersAceAsTenWhenSafe() {
             MachinePlayer machine = new MachinePlayer("Máquina 1");
             // tableSum = 35
-            // ACE  → 35+10 = 45 ✓ (10 is used because 35+10 <= 50)  ← best
-            // TWO  → 35+2  = 37 ✓ legal but lower
+            // ACE  -> 35+10 = 45  (10 is used because 35+10 <= 50)  <- best
+            // TWO  -> 35+2  = 37  legal but lower
             machine.drawCard(new Card(Suit.DIAMONDS, Rank.ACE));
             machine.drawCard(new Card(Suit.HEARTS,   Rank.TWO));
 

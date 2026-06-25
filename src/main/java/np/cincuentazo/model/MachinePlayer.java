@@ -67,7 +67,7 @@ public class MachinePlayer extends Player{
      * Determines the index of the best card to play from the machine's hand,
      * given the current table sum.
      *
-     * <h3>Algorithm</h3>
+     * Algorithm
      * <ol>
      *   <li>Filter the hand for legally playable cards.</li>
      *   <li>Among playable cards, pick the one that maximises
