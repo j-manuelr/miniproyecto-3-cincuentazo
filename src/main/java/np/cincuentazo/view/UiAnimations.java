@@ -85,7 +85,7 @@ public final class UiAnimations {
      *   <li><b>Mouse released:</b> node returns to the hover state if the
      *       cursor is still over it, or to rest otherwise.</li>
      * </ul>
-     * </p>
+     *
      *
      * @param node the button or button-like node to animate; existing
      *             {@code onMouseEntered/Exited/Pressed/Released} handlers

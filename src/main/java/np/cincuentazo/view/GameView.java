@@ -87,7 +87,7 @@ public class GameView {
      *       playable, a hover animation and a click handler (supplied by
      *       {@code clickHandlerFactory}) are attached.</li>
      * </ul>
-     * </p>
+     *
      *
      * @param humanHand           the {@link HBox} that holds the human's card views;
      *                            cleared before repopulating
@@ -169,7 +169,7 @@ public class GameView {
      *   <li>{@code badge-waiting} — player is alive but waiting for their turn.</li>
      * </ul>
      * All three classes are removed before the new one is added to avoid
-     * accumulation.</p>
+     * accumulation.
      *
      * @param label   the badge {@link Label} node to update
      * @param player  the player this badge represents

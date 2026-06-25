@@ -65,7 +65,7 @@ public class Deck {
     public void addCardsToBottom(List<Card> newCards) {
         if (newCards == null || newCards.isEmpty()) return;
         for (Card c : newCards) {
-            c.setFaceUp(false);   // ← BUG FIX: was incorrectly calling drawCard() here,
+            c.setFaceUp(false);   // <- BUG FIX: was incorrectly calling drawCard() here,
             cards.addLast(c);     //   which removed a deck card for every card added.
         }
     }

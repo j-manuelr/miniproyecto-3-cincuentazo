@@ -1,3 +1,9 @@
+/**
+ * Main module for the Cincuentazo application.
+ *
+ * <p>Contains the model, view, controller, exception,
+ * thread and interface packages used by the game.</p>
+ */
 module np.cincuentazo {
     requires javafx.controls;
     requires javafx.fxml;

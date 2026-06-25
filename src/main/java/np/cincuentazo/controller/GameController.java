@@ -366,7 +366,7 @@ public class GameController {
         cancelHumanTurnTimer();
         humanTurnTimer = new TurnTimerThread(
             30,
-            remaining -> lblActionMsg.setText("⏱  " + remaining + "s — Selecciona una carta (teclas 1-4)"),
+            remaining -> lblActionMsg.setText(" " + remaining + "s — Selecciona una carta (teclas 1-4)"),
             this::onHumanTurnTimeout
         );
         humanTurnTimer.start();
@@ -391,7 +391,7 @@ public class GameController {
     private void onHumanTurnTimeout() {
         if (gameState == null || gameState.isGameOver()) return;
         if (gameState.getCurrentPlayer() instanceof HumanPlayer) {
-            lblActionMsg.setText("⏱  ¡Tiempo agotado! Jugador eliminado.");
+            lblActionMsg.setText(" ¡Tiempo agotado! Jugador eliminado.");
             eliminateCurrentPlayer();
         }
     }

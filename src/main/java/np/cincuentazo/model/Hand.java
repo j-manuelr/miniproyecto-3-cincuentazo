@@ -62,7 +62,7 @@ public class Hand {
      *   <li>After a player plays a card — they draw one replacement so the
      *       hand returns to the expected size.</li>
      * </ol>
-     * </p>
+     *
      *
      * @param card the card to add; must not be {@code null}
      * @throws NullPointerException if {@code card} is {@code null}
